@@ -116,7 +116,7 @@ func (m *Manifest) Save(groveDir string) error {
 		return err
 	}
 	if encErr := toml.NewEncoder(f).Encode(m); encErr != nil {
-		f.Close()
+		_ = f.Close()
 		return encErr
 	}
 	return f.Close()

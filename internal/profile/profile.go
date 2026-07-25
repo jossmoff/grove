@@ -183,7 +183,7 @@ func (pr *Profile) Save(profilesRoot, name string) error {
 		return err
 	}
 	if err := toml.NewEncoder(f).Encode(pr); err != nil {
-		f.Close()
+		_ = f.Close()
 		return err
 	}
 	if err := f.Close(); err != nil {
