@@ -115,8 +115,11 @@ func (m *Manifest) Save(groveDir string) error {
 	if err != nil {
 		return err
 	}
-	defer f.Close()
-	return toml.NewEncoder(f).Encode(m)
+	if err := toml.NewEncoder(f).Encode(m); err != nil {
+		f.Close()
+		return err
+	}
+	return f.Close()
 }
 
 // Discover walks up from dir looking for a grove.toml, the way git walks up
