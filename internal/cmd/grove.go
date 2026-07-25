@@ -65,7 +65,7 @@ func New() *cli.Command {
 		Action: func(ctx context.Context, c *cli.Command) error {
 			slug := c.Args().First()
 			if slug == "" {
-				return errors.New("usage: grove new <slug> [--profile P] [-w REPO]... [-r REPO]...")
+				return errors.New("usage: grove new <slug> [--profile P] [-w REPO]... [-r REPO]")
 			}
 			cfg, err := config.Load()
 			if err != nil {
