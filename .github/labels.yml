@@ -1,0 +1,30 @@
+# Synced to the repo by the Labels workflow. These are the labels
+# release-drafter categorises and version-resolves on; without them, PRs fall
+# through uncategorised.
+- name: feature
+  color: 0e8a16
+  description: New functionality
+- name: enhancement
+  color: 0e8a16
+  description: Improvement to existing functionality
+- name: fix
+  color: d73a4a
+  description: Bug fix
+- name: bug
+  color: d73a4a
+  description: Something isn't working
+- name: bugfix
+  color: d73a4a
+  description: Bug fix
+- name: dependencies
+  color: 0366d6
+  description: Dependency updates
+- name: major
+  color: b60205
+  description: Breaking change — bumps the major version
+- name: minor
+  color: fbca04
+  description: Backwards-compatible feature — bumps the minor version
+- name: patch
+  color: c2e0c6
+  description: Backwards-compatible fix — bumps the patch version

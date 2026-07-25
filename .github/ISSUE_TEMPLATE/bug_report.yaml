@@ -1,0 +1,69 @@
+name: Bug report
+title: "[bug] "
+description: Problems and issues with grove
+labels: ["bug"]
+assignees:
+  - jossmoff
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you very much for submitting feedback to grove!
+
+  - type: checkboxes
+    attributes:
+      label: Search before asking
+      description: >
+        Please make sure to search in the [issues](https://github.com/jossmoff/grove/issues?q=is%3Aissue) first to see
+        whether the same issue was reported already.
+      options:
+        - label: >
+            I had searched in the [issues](https://github.com/jossmoff/grove/issues?q=is%3Aissue) and found no similar
+            issues.
+          required: true
+
+  - type: textarea
+    attributes:
+      label: Version
+      description: Output of `grove --version` (or the commit id if built from source).
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: What's Wrong?
+      description: Describe the bug.
+      placeholder: >
+        Describe the specific problem, the more detailed the better.
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: What You Expected?
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: How to Reproduce?
+      placeholder: >
+        Please give reproducing steps. The grove.toml of the affected grove and
+        the exact command line are especially helpful.
+
+  - type: textarea
+    attributes:
+      label: Anything Else?
+
+  - type: checkboxes
+    attributes:
+      label: Are you willing to submit PR?
+      description: >
+        We very much look forward to developers or users helping solve grove problems together.
+        If you are willing to submit a PR to fix this problem, please tick it.
+      options:
+        - label: Yes I am willing to submit a PR!
+
+  - type: markdown
+    attributes:
+      value: "Thanks for completing the form!"

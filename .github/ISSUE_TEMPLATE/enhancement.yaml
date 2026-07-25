@@ -1,0 +1,52 @@
+name: Enhancement
+description: Add an enhancement for grove
+title: "[enhancement] "
+labels: ["enhancement"]
+assignees:
+  - jossmoff
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you very much for submitting feedback to grove!
+
+  - type: checkboxes
+    attributes:
+      label: Search before asking
+      description: >
+        Please make sure to search in the [issues](https://github.com/jossmoff/grove/issues?q=is%3Aissue) first to see
+        whether the same issue was reported already.
+      options:
+        - label: >
+            I had searched in the [issues](https://github.com/jossmoff/grove/issues?q=is%3Aissue) and found no similar
+            issues.
+          required: true
+
+  - type: textarea
+    attributes:
+      label: Description
+      description: Describe the enhancement you want, including motivation if it exists.
+
+  - type: textarea
+    attributes:
+      label: Solution
+      placeholder: >
+        Add an overview of the proposed solution.
+
+        Add related materials like links if they exist.
+
+  - type: markdown
+    attributes:
+      value: >
+        Note: grove is deliberately small and unproven (see TRIAL.md). New
+        surface area has a high bar until the core is shown to be used.
+
+  - type: checkboxes
+    attributes:
+      label: Are you willing to submit PR?
+      options:
+        - label: Yes I am willing to submit a PR!
+
+  - type: markdown
+    attributes:
+      value: "Thanks for completing our form!"
