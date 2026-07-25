@@ -182,8 +182,11 @@ func (pr *Profile) Save(profilesRoot, name string) error {
 	if err != nil {
 		return err
 	}
-	defer f.Close()
 	if err := toml.NewEncoder(f).Encode(pr); err != nil {
+		_ = f.Close()
+		return err
+	}
+	if err := f.Close(); err != nil {
 		return err
 	}
 	for file, header := range map[string]string{

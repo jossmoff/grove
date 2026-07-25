@@ -67,7 +67,7 @@ func (m dashboardModel) View() tea.View {
 		if i == m.cursor {
 			name = lipgloss.NewStyle().Background(lipgloss.Color("236")).Bold(true).Render(" " + name + " ")
 		}
-		left.WriteString(fmt.Sprintf("%s %s\n", dot, name))
+		fmt.Fprintf(&left, "%s %s\n", dot, name)
 		left.WriteString(dashLabel.Render(fmt.Sprintf("  %d repos", len(g.Repos))) + "\n")
 	}
 
@@ -92,8 +92,8 @@ func (m dashboardModel) View() tea.View {
 		case sum != "clean":
 			sumStyle = dashDirty
 		}
-		right.WriteString(fmt.Sprintf("%-28s %s  %s\n",
-			r.At, roleStyle.Render(string(r.Role)), sumStyle.Render(sum)))
+		fmt.Fprintf(&right, "%-28s %s  %s\n",
+			r.At, roleStyle.Render(string(r.Role)), sumStyle.Render(sum))
 	}
 
 	body := lipgloss.JoinHorizontal(lipgloss.Top,

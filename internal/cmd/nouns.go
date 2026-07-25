@@ -169,7 +169,7 @@ func Profile() *cli.Command {
 					if _, err := toml.Decode(string(data), &doc); err != nil {
 						return err
 					}
-					if err := doc.Profile.Save(config.ProfilesDir(), name); err != nil {
+					if err := doc.Save(config.ProfilesDir(), name); err != nil {
 						return err
 					}
 					if doc.Context != "" {
