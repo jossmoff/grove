@@ -13,3 +13,12 @@ builds:
     goarch:
       - amd64
       - arm64
+
+brews:
+  - name: grove
+    repository:
+      owner: jossmoff
+      name: homebrew-tap
+      token: "{{ .Env.HOMEBREW_TAP_GITHUB_TOKEN }}"
+    homepage: https://github.com/jossmoff/grove
+    description: "Multi-repo agent workspaces backed by git worktrees"
