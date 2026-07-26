@@ -53,7 +53,6 @@ func newEnv(t *testing.T, repos ...string) *env {
 		mustGit(t, base, "clone", "-q", origin, dest)
 		mustGit(t, dest, "config", "user.email", "t@t.co")
 		mustGit(t, dest, "config", "user.name", "t")
-		mustGit(t, dest, "config", "tag.gpgSign", "false")
 	}
 	return &env{t: t, cfg: cfg}
 }

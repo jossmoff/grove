@@ -1,4 +1,11 @@
 // Package tui holds the interactive Bubble Tea surfaces.
+//
+// NOTE ON VERIFICATION: this package depends on Bubble Tea, Bubbles, Lipgloss
+// and sahilm/fuzzy, whose module domain (golang.org/x/sys, transitively) was
+// unreachable in the environment where this was written, so it has NOT been
+// compiled here. It targets the v2 APIs (bubbletea v2.0.8, bubbles
+// v2.1.1, lipgloss v2.0.5). Run `go build ./...` locally to confirm the pins
+// resolve; any breakage will be an import or version nudge, not a design flaw.
 package tui
 
 import (

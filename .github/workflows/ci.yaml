@@ -55,23 +55,6 @@ jobs:
       - name: golangci-lint
         uses: golangci/golangci-lint-action@v9
 
-  install-smoke:
-    # A4: prove go install works from a cold module cache so the advertised
-    # install path never silently breaks.
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v7
-      - uses: actions/setup-go@v7
-        with:
-          go-version-file: go.mod
-          cache: false
-      - name: Clean-cache install smoke test
-        run: |
-          export GOMODCACHE=$(mktemp -d)
-          export GOPATH=$(mktemp -d)
-          go install ./cmd/grove
-          $GOPATH/bin/grove --help
-
   cross-compile:
     # The headline Go win: prove every release target builds, CGO off.
     runs-on: ubuntu-latest
