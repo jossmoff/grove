@@ -11,8 +11,7 @@ import (
 )
 
 // dashboardModel is a read-only browser over groves: a left list, a right
-// detail pane. Like the picker it targets bubbletea v1 and is verified by
-// signature, not compiled here. See BUILD_NOTES.md.
+// detail pane.
 type dashboardModel struct {
 	groves []status.GroveStatus
 	cursor int
