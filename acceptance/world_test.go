@@ -80,6 +80,9 @@ func (w *World) run(args ...string) error {
 		"GROVE_CONFIG="+w.configPath,
 		"GROVE_CACHE_DIR="+w.cacheDir,
 		"HOME="+w.tmpDir,
+		"USERPROFILE="+w.tmpDir,
+		"GIT_CONFIG_GLOBAL="+filepath.Join(w.tmpDir, ".gitconfig"),
+		"GIT_CONFIG_NOSYSTEM=1",
 	)
 	cwd := w.nextCwd
 	if cwd == "" {
@@ -106,12 +109,18 @@ func (w *World) run(args ...string) error {
 	return nil
 }
 
-// filteredEnv returns the host environment with any GROVE_* vars stripped so
-// the host developer's own grove config can never leak into test scenarios.
+// filteredEnv returns the host environment with variables stripped that the
+// test suite controls explicitly: GROVE_* (config/cache), HOME and USERPROFILE
+// (git identity on Unix and Windows respectively).
 func filteredEnv() []string {
 	var env []string
 	for _, e := range os.Environ() {
-		if strings.HasPrefix(e, "GROVE_") {
+		key, _, _ := strings.Cut(e, "=")
+		switch strings.ToUpper(key) {
+		case "HOME", "USERPROFILE", "HOMEDRIVE", "HOMEPATH":
+			continue
+		}
+		if strings.HasPrefix(strings.ToUpper(key), "GROVE_") {
 			continue
 		}
 		env = append(env, e)
@@ -123,7 +132,12 @@ func filteredEnv() []string {
 func (w *World) gitRun(dir string, args ...string) (string, error) {
 	cmd := exec.Command("git", args...)
 	cmd.Dir = dir
-	cmd.Env = append(filteredEnv(), "HOME="+w.tmpDir)
+	cmd.Env = append(filteredEnv(),
+		"HOME="+w.tmpDir,
+		"USERPROFILE="+w.tmpDir,
+		"GIT_CONFIG_GLOBAL="+filepath.Join(w.tmpDir, ".gitconfig"),
+		"GIT_CONFIG_NOSYSTEM=1",
+	)
 	var out, errb bytes.Buffer
 	cmd.Stdout = &out
 	cmd.Stderr = &errb

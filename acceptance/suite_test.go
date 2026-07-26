@@ -20,6 +20,7 @@ import (
 	"os"
 	"os/exec"
 	"path/filepath"
+	"runtime"
 	"testing"
 
 	"github.com/cucumber/godog"
@@ -45,6 +46,9 @@ func resolveGroveBinary() (string, error) {
 		return b, nil
 	}
 	bin := filepath.Join(os.TempDir(), fmt.Sprintf("grove-acceptance-%d", os.Getpid()))
+	if runtime.GOOS == "windows" {
+		bin += ".exe"
+	}
 	cmd := exec.Command("go", "build", "-o", bin, "github.com/jossmoff/grove/cmd/grove")
 	if out, err := cmd.CombinedOutput(); err != nil {
 		return "", fmt.Errorf("%v: %s", err, out)
