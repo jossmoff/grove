@@ -7,4 +7,4 @@ merge, and published on tag. See the
 
 ## [Unreleased]
 
-Initial development. The tool is unproven — see [TRIAL.md](TRIAL.md).
+Initial development. The tool is unproven.
