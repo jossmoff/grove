@@ -4,9 +4,10 @@ go 1.25.0
 
 require (
 	charm.land/bubbles/v2 v2.1.1
-	charm.land/bubbletea/v2 v2.0.8
+	charm.land/bubbletea/v2 v2.0.9
 	charm.land/lipgloss/v2 v2.0.5
 	github.com/BurntSushi/toml v1.6.0
+	github.com/cucumber/godog v0.15.1
 	github.com/google/go-cmp v0.7.0
 	github.com/sahilm/fuzzy v0.1.3
 	github.com/urfave/cli/v3 v3.10.1
@@ -23,7 +24,6 @@ require (
 	github.com/clipperhouse/displaywidth v0.11.0 // indirect
 	github.com/clipperhouse/uax29/v2 v2.7.0 // indirect
 	github.com/cucumber/gherkin/go/v26 v26.2.0 // indirect
-	github.com/cucumber/godog v0.15.1 // indirect
 	github.com/cucumber/messages/go/v21 v21.0.1 // indirect
 	github.com/gofrs/uuid v4.3.1+incompatible // indirect
 	github.com/hashicorp/go-immutable-radix v1.3.1 // indirect
